@@ -11,7 +11,7 @@ public class HibernateDeleteUser {
     public HibernateDeleteUser(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-    public void deleteUser(int userId) throws Exception {
+    public void deleteUser(int userId) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 

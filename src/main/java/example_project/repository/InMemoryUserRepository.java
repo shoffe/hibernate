@@ -55,8 +55,7 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public User update(User updateUser) {
-        for (int i = 0; i < users.size(); i++) {
-            User user = users.get(i);
+        for (User user : users) {
             if (user.getId().equals(updateUser.getId())) {
                 user.setName(updateUser.getName());
                 user.setAge(updateUser.getAge());

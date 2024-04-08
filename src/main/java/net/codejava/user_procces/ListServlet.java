@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import example_project.User;
 import hibernate.HibernateListAll;
 import hibernate.HibernateUtil;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,14 +21,14 @@ public class ListServlet extends HttpServlet {
 
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         listAll = new HibernateListAll(sessionFactory);
         objectMapper = new ObjectMapper();
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             List<User> users = listAll.listAllUsers();
             response.setContentType("application/json");

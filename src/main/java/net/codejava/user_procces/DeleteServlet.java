@@ -2,7 +2,6 @@ package net.codejava.user_procces;
 
 import hibernate.HibernateDeleteUser;
 import hibernate.HibernateUtil;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,13 +16,13 @@ public class DeleteServlet extends HttpServlet {
     private HibernateDeleteUser hibernateDeleteUser;
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         hibernateDeleteUser = new HibernateDeleteUser(sessionFactory);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         try {
             String userId = request.getParameter("userId");

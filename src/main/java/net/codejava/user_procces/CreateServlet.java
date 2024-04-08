@@ -19,7 +19,7 @@ public class CreateServlet extends HttpServlet {
     ObjectMapper objectMapper = new ObjectMapper(); //Создаём объект ObjectMapper из библ Jackson для объектов Java -> JSON
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         createUser = new HibernateCreateUser(sessionFactory);
         objectMapper = new ObjectMapper();
